@@ -1,0 +1,66 @@
+/**************Home page***********/
+.main{
+    background-color: black;
+    width: 100%;
+    margin:0;
+    color: aliceblue;
+}
+.home{
+    justify-content: center;
+    display: flex;
+    padding: 10px;
+}
+
+.home-img{
+  padding: 10px;
+  justify-content: center;
+  display: flex;  
+}
+.home-imglogo{
+    width:450px;
+    border-radius: 25px;
+    align-items: center;
+}
+.home-logreg{
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+}
+.btn-log,.btn-reg
+{
+    padding:15px 30px;
+    margin-right: 15px;
+    border-radius: 12px;
+    border: none;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 25px;
+    color: rgb(77, 210, 126);
+    cursor: pointer;
+}
+/**************login page***********/
+
+.formlogin , .formregister{
+    margin: 10px auto;
+    padding: 20px;
+    width: 380px;
+    border-radius: 16px;
+    border: 3px solid coral;
+    /* text-align: center; */
+}
+.d-grid ,.loginh1 ,.regih1{
+    text-align: center;
+    font-weight: bolder;
+    color: coral;
+    font-family: monospace;
+}
+.FcFeedback ,.FcLock,.FcPortraitMode .FcCheckmark{
+    font-size: 24px;
+}
+.h6log, .preg{
+    text-align: center;
+    font-weight: bolder;
+    color: coral;
+    font-family: monospace;
+    margin: 12px;
+}
