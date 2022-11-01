@@ -48,19 +48,36 @@
     border: 3px solid coral;
     /* text-align: center; */
 }
-.d-grid ,.loginh1 ,.regih1{
+.d-grid {
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+    font-family: monospace;
+}
+.loginh1 ,.regih1{
     text-align: center;
     font-weight: bolder;
     color: coral;
     font-family: monospace;
 }
-.FcFeedback ,.FcLock,.FcPortraitMode .FcCheckmark{
+.FcFeedback ,.FcLock, .FcCheckmark, .FcPortraitMode{
     font-size: 24px;
 }
-.h6log, .preg{
+
+.h6log:hover{
+    text-align: center;
+    font-weight: bolder;
+    color: coral;
+
+    
+}
+ .preg , .h6log{
     text-align: center;
     font-weight: bolder;
     color: coral;
     font-family: monospace;
     margin: 12px;
+    text-decoration: none;
+    
 }
+ 

@@ -9,18 +9,16 @@ const myStyle={
   background:'black',
   height:'100vh',
   overflow: 'hidden',
-  // marginTop:'10px',w
 };
 
   function App(){
     return(
      <div style={myStyle} className='main'>
-       <Routes>
-        <Route path="/home" element={<HomePage/>} />
-        <Route path="/Login" element={<Login/>} />
-        <Route path="/Register" element={<Register/>} />
-//     </Routes>
-
+		<Routes>
+			<Route path="/home" element={<HomePage/>} />
+			<Route path="/Login" element={<Login/>} />
+			<Route path="/Register" element={<Register/>} />
+		</Routes>
      </div>
     )
     

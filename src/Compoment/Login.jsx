@@ -1,10 +1,7 @@
 import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import {FcLock} from "react-icons/fc";
-import { FcFeedback } from "react-icons/fc";
-
-
+import {FcLock ,FcFeedback} from "react-icons/fc";
+import{Router ,NavLink} from 'react-router-dom'
+import Register from './Register';
 const btnlg={background:'coral', border:'none'}
 const sing={color:'coral'}
 const shadow = {
@@ -12,27 +9,23 @@ const shadow = {
   };
 const Login=()=>{
     return(
-       <Container>
-            <Form className='formlogin' style={shadow}>
+    <Container> 
+        <form className='formregister' style={shadow}>
             <h1 className='loginh1'>Login</h1>
-                <Form.Group className="mb-3" controlId="Emaillogin">
-                    
-                    <Form.Label  ><span className='FcFeedback'><FcFeedback/></span>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="Passwordlogin">
-                <span className='FcLock'><FcLock/></span><Form.Label>Password</Form.Label>
-                    <Form.Control type="password"  placeholder="Password" />
-                </Form.Group>
-                <p><a href="http://" style={sing}>Forget Passwprd ?</a></p>
-                <div className="d-grid gap-2">
-                   <Button  type="submit" style={btnlg} size="lg">Login</Button>
-                </div>               
-                 <h6 >Note a member{' '}<a className='h6log' href="http://" style={sing}>Sign up now</a></h6>
-
-            </Form>
-            
-       </Container>
+            <div class="mb-3" >
+            <span className='FcFeedback'><FcFeedback/></span><label  class="form-label">Email </label>
+                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+            <span className='FcLock'><FcLock/></span><label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" className="form-control" id="passwordreg" />
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" className="btn btn-lg fw-bolder" style={btnlg}>login</button>
+            </div>
+            <h6 className=''>Note a member{' '}<NavLink to='/Register' className='h6log'>Sign up now</NavLink></h6>
+        </form>
+    </Container>
     );
 };
 
