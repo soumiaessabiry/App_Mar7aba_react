@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from "./Compoment/Home";
 import Login from "./Compoment/Login";
 import Register from "./Compoment/Register";
+import Users from "./Compoment/Users";
+import axios from 'axios'
 const myStyle={
   background:'black',
   height:'100vh',
@@ -18,6 +20,7 @@ const myStyle={
 			<Route path="/home" element={<HomePage/>} />
 			<Route path="/Login" element={<Login/>} />
 			<Route path="/Register" element={<Register/>} />
+      <Route path="/Users" element={<Users/>} />
 		</Routes>
      </div>
     )

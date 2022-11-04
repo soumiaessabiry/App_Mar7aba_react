@@ -63,6 +63,9 @@
 .FcFeedback ,.FcLock, .FcCheckmark, .FcPortraitMode{
     font-size: 24px;
 }
+.FcHighPriority{
+    font-size: 35px;
+}
 
 .h6log:hover{
     text-align: center;
@@ -70,6 +73,18 @@
     color: coral;
 
     
+}
+.LOGOUT:hover{
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;  
+}
+.LOGOUT{
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;  
 }
  .preg , .h6log{
     text-align: center;
@@ -79,5 +94,9 @@
     margin: 12px;
     text-decoration: none;
     
+}
+.sing{
+    margin-top: 15px;
+    text-align: center;
 }
  
