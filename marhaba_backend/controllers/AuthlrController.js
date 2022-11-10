@@ -62,12 +62,14 @@ const Login=async (req,res)=>{
 
             // locltorage('email',email)
             // res.send({messagesuccess:`Hello ${checkuser.username} your Email is ${checkuser.email} and your  Role is ${checkuser.role}`})
-            const username=`${checkuser.username}`;
-            const email=`${checkuser.email}`;
-            const Role=`${checkuser.role}`;
-            const datalog={username ,email, Role}
-
-            res.send({messagesuccess:datalog})
+            const username=checkuser.username;
+            const email=checkuser.email;
+            rolesm.findOne({_id: checkuser.role})
+                .then(e=>{
+                    const datalog ={username: username ,email: email, role: e.name}
+                    res.json({messagesuccess:datalog})
+                })
+                .catch(()=>{res.json({message: 'error'})})
 
         }
     }else{

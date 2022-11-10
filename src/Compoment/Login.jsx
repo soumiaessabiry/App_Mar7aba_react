@@ -37,7 +37,7 @@ const Login=()=>{
                     // localStorage.setItem('name',email)
                     localStorage.setItem('NameUser',messagesuccess.username)
                     localStorage.setItem('EmailUser',messagesuccess.email)
-                    // localStorage.setItem('RoleUser',messagesuccess.Role)
+                    localStorage.setItem('RoleUser',messagesuccess.role)
 
                 }else if(messagepwd!=undefined){
                 setMsgpwdaff(true)

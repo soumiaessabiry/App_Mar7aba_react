@@ -22,6 +22,7 @@ const User=()=>{
             <div className="card-body">
                 <h5 className="card-title">Hello {Username}</h5>
                 <h5 className="card-title">Your email is : {Email}</h5>
+                <h5 className="card-title">Your role is : {Role}</h5>
                 <p className="card-text"></p>
                 <div class="d-grid gap-2">
                 <button type='submit' className="btn btn-lg fw-bolder" style={LOGOUT} onClick={logout}><NavLink to='/home' className='LOGOUT'>LOGOUT</NavLink></button>
