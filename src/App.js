@@ -10,6 +10,9 @@ import Dashbord from "./Compoment/Dashbord"
 import Sidebar from "./Compoment/Sidbar"
 import axios from 'axios'
 import Navbar from "./Compoment/Navbar"
+import Livreur from "./Compoment/Livreur"
+import Manger from "./Compoment/Manger"
+import Client from "./Compoment/Client"
 const myStyle={
   background:'black',
   height:'100vh',
@@ -25,6 +28,9 @@ const myStyle={
 			<Route path="/Register" element={<Register/>} />
       <Route path="/Users" element={<Users/>} />
       <Route path="/Dashbord" element={<Dashbord/>} />
+      <Route path="/Livreur" element={<Livreur/>}></Route>
+      <Route path="/Manger" element={<Manger/>}></Route>
+      <Route path="/Client" element={<Client/>}></Route>
 		</Routes>
      </div>
     )
