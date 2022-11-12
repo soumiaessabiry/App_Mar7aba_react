@@ -10,7 +10,7 @@ import axios from 'axios'
 const btnlg={background:'coral', border:'none'}
 const err={color:'red'}
 const sing={color:'coral'}
-const shadow = {boxShadow: '1px 2px 20px #F4AAB9',};
+const shadow = {boxShadow: '1px 2px 20px red',};
 
 const Login=()=>{
     const [email,setEmail]=useState('');
@@ -52,7 +52,7 @@ const Login=()=>{
     return(
     <Container> 
         <form className='formregister' onSubmit={onsubmit} style={shadow}>
-            <h1 className='loginh1'>Login</h1>
+            <h1 className='loginh1 '>Login</h1>
             <h5 className='text-center'>
             {
                 (msguserexist)
@@ -70,19 +70,19 @@ const Login=()=>{
             <div class="mb-3" >
                 <span className='FcFeedback'><FcFeedback/></span>
                 <label  className="form-label">Email </label>
-                <input type="text"  name='email' onChange={(e)=>{setEmail(e.target.value)}} className="form-control"   placeholder=" Enter email"/>
+                <input type="text"  name='email' onChange={(e)=>{setEmail(e.target.value)}} className="form-control p-2 fs-4"   placeholder=" Enter email"/>
                 {(erroor && email.length<=0) ? <span style={err}> <FcHighPriority className='FcHighPriority2' />{ ' '}email et obligatoir</span>:""}
             </div>
             <div class="mb-3">
                 <span className='FcLock'><FcLock/></span>
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name='password' onChange={(e)=>{setPassword(e.target.value)}} className="form-control" id="pwdlog" placeholder=" Enter password" />
+                <input type="password" name='password' onChange={(e)=>{setPassword(e.target.value)}} className="form-control p-2 fs-4" id="pwdlog" placeholder=" Enter password" />
                     {(erroor && password.length<=0)?<span style={err} ><FcHighPriority className='FcHighPriority2' />{ ' '}password obligatoir</span>:""}
             </div>
             <div class="d-grid gap-2">
-                <button type='submit' className="btn btn-lg fw-bolder" style={btnlg}>login</button>
+                <button type='submit' className="btn btn-lg fw-bolder fs-3 p-2" style={btnlg}>login</button>
             </div>
-            <h6 className='sing'>Note a member{' '}<NavLink to='/Register' className='h6log'>Sign up now</NavLink></h6>
+            <h5 className='sing'>Note a member{' '}<NavLink to='/Register' className='h6log'>Sign up now</NavLink></h5>
         </form>
     </Container>
     );

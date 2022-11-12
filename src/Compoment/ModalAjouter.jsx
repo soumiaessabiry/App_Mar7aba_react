@@ -14,28 +14,28 @@ const ModalAjouter=(props)=>{
                 <div className="modal-body text-dark fw-bolder">
                     <form>
                         <div className="mb-3">
-                            <label className="col-form-label">Nom de {props.name}</label>
-                            <input type="text" className="form-control p-2"  />
+                            <label className="col-form-label fs-5">Nom de {props.name}</label>
+                            <input type="text" className="form-control p-2 fs-4"  />
                         </div>
                         <div className="mb-3">
-                            <label for="message-text" className="col-form-label">Email  {props.name}</label>
-                            <input type="email" className="form-control p-2" />
+                            <label for="message-text" className="col-form-label fs-5">Email  {props.name}</label>
+                            <input type="email" className="form-control p-2 fs-4" />
 
                         </div>
                         <div className="mb-3">
-                            <label for="message-text" className="col-form-label">Password </label>
-                            <input type="password" className="form-control p-2" />
+                            <label for="message-text" className="col-form-label fs-5">Password </label>
+                            <input type="password" className="form-control p-2 fs-4" />
 
                         </div>
                         <div className="mb-3">
-                            <label for="message-text" className="col-form-label">Role</label>
-                            <input type="text" className="form-control p-2" />
+                            <label for="message-text" className="col-form-label fs-5">Role</label>
+                            <input type="text" className="form-control p-2 fs-4" />
                         </div>
                     </form>
                 </div>
                 <div className="modal-footer ">
-                    <button type="button" className="btn btn-secondary fw-bolder p-2" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn p-2 fw-bolder" style={bgg}>Ajouter {props.name}</button>
+                    <button type="button" className="btn btn-secondary fw-bolder p-3" data-bs-dismiss="modal">Close</button>
+                    <button type="button" className="btn p-3 fw-bolder text-white" style={bgg}>Ajouter {props.name}</button>
                 </div>
                 </div>
             </div>

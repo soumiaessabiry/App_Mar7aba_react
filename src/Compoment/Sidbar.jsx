@@ -11,7 +11,7 @@ import Livreur from './Livreur'
 import Client from './Client'
 import Manger from './Manger'
 
-const styleFc={'font-size':'41px', 'margin-top':' 15px','margin-left':' 1px', 'font-weight': 'bolder','font-size':'40px','color':'black'}
+const styleFc={'font-size':'41px', 'margin-top':' 15px','margin-left':'-15px', 'font-weight': 'bolder','font-size':'40px','color':'black'}
 const logo={'border-radius': '35px','margin-top':' 10px'}
 const icon={"font-size": "35px"}
 const sid={'margin-top':"90px"}
@@ -27,7 +27,7 @@ const Titledispshow=(e)=>{
     setDisplay(!isShown)
 }
     return(
-        <div className="position-relative p-1">
+        <div className="position-relative p-2">
             <div className="position-absolute top-0 start-100 translate-middle pdashbor"><BsFillArrowRightCircleFill style={styleFc} id="menu" onClick={Titledispshow}/></div>
             <div>
                <div>

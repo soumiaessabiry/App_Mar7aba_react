@@ -12,7 +12,7 @@ const btnlg={background:'coral', border:'none'}
 const sing={color:'coral',Text:'bolder' }
 const err={color:'red',Text:'bolder' }
 const err2={color:'red',Text:'center' }
-const shadow = { boxShadow: '1px 2px 20px #F4AAB9'};
+const shadow = { boxShadow: '1px 2px 20px yellow'};
 
 
 const Register=()=>{    
@@ -51,31 +51,31 @@ const Register=()=>{
             <div className="mb-3" >
                 <span className='FcPortraitMode'><FcPortraitMode/></span>
                 <label  className="form-label">Username</label>
-                <input type="text" name='username' className="form-control" onChange={(e)=>{setUsername(e.target.value)}} placeholder=" Enter username" />
+                <input type="text" name='username' className="form-control p-2 fs-4" onChange={(e)=>{setUsername(e.target.value)}} placeholder=" Enter username" />
                 {(error && username.length<=0) ?<span style={err}>username obligatoir</span>:""}
             </div>
             <div className="mb-3" >
                 <span className='FcFeedback'><FcFeedback/></span> 
                 <label  className="form-label">Email </label>
-                <input type="email" name='email' className="form-control" onChange={(e)=>{setEmail(e.target.value)}}  aria-describedby="emailHelp" placeholder=" Enter email" />
+                <input type="email" name='email' className="form-control p-2 fs-4" onChange={(e)=>{setEmail(e.target.value)}}  aria-describedby="emailHelp" placeholder=" Enter email" />
                 {(error && email.length<=0)?<span style={err}>email obligatoir</span>:""}
             </div>
             <div className="mb-3">
                 <span className='FcLock'><FcLock/></span>
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password"  name='password' className="form-control" onChange={(e)=>{setPassword(e.target.value)}} placeholder=" Enter password" />
+                <input type="password"  name='password' className="form-control p-2 fs-4" onChange={(e)=>{setPassword(e.target.value)}} placeholder=" Enter password" />
                 {(error && email.length<=0)?<span style={err}>password obligatoir</span>:""}
             </div>
             <div className="mb-3">
                 <span className='FcCheckmark'><FcCheckmark/></span>
                 <label  className="form-label">Confirm Pssword</label>
-                <input type="password" name='confirmpwd' className="form-control" onChange={(e)=>{setConfirmpwd(e.target.value)}} placeholder=" Enter username"/>
+                <input type="password" name='confirmpwd' className="form-control p-2 fs-4" onChange={(e)=>{setConfirmpwd(e.target.value)}} placeholder=" Enter username"/>
                 {(error && confirmpwd.length<=0 || password!=confirmpwd)?<span style={err}>password incorrect</span>:""}
             </div>
             <div className="d-grid gap-2">
-                <button type="submit" name="submit" className="btn btn-lg fw-bolder" style={btnlg}>Register</button>
+                <button type="submit" name="submit" className="btn btn-lg fw-bolder p-3 fs-3" style={btnlg}>Register</button>
             </div>
-            <h5 className='preg'>{' '}<NavLink to='/Login' className='preg' style={sing}>Login</NavLink></h5>
+            <h4 className='preg'>{' '}<NavLink to='/Login' className='preg' style={sing}>Login</NavLink></h4>
         </form>
     </Container>
     );
