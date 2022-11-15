@@ -6,6 +6,7 @@ import Dashbord from "./Dashbord";
 import Sidebar from "./Sidbar"
 import ModalAjouter from "./ModalAjouter"
 const over={'overflow': 'auto'}
+const iconBsPC={'display':'none'}
 const bgg={'background':'#fd7e14'}
 const Client=()=>{
     return(
@@ -16,7 +17,7 @@ const Client=()=>{
                 </div>
                 <div className=" p-1 w-100" style={over} >
                         <Row className=" m-auto" style={bgg}>
-                            <Navbar name=" Client" />
+                            <Navbar name=" Client" iconBsP={iconBsPC} />
                         </Row>
                         <Row className="  m-auto mt-3 bg-light text-dark">
                             <div>

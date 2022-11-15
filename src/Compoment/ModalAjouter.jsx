@@ -15,27 +15,27 @@ const ModalAjouter=(props)=>{
                     <form>
                         <div className="mb-3">
                             <label className="col-form-label fs-5">Nom de {props.name}</label>
-                            <input type="text" className="form-control p-2 fs-4"  />
+                            <input type="text" className="form-control p-2 fs-4" value={props.username}  onChange={props.onchangeusername}/>
                         </div>
                         <div className="mb-3">
                             <label for="message-text" className="col-form-label fs-5">Email  {props.name}</label>
-                            <input type="email" className="form-control p-2 fs-4" />
+                            <input type="email" className="form-control p-2 fs-4" value={props.email} onChange={props.onchangeemail} />
 
                         </div>
                         <div className="mb-3">
                             <label for="message-text" className="col-form-label fs-5">Password </label>
-                            <input type="password" className="form-control p-2 fs-4" />
+                            <input type="password" className="form-control p-2 fs-4" value={props.password} onChange={props.onchangepassword} />
 
                         </div>
                         <div className="mb-3">
                             <label for="message-text" className="col-form-label fs-5">Role</label>
-                            <input type="text" className="form-control p-2 fs-4" />
+                            <input type="text" className="form-control p-2 fs-4"  value={props.role} onChange={props.onchangerole}/>
                         </div>
                     </form>
                 </div>
                 <div className="modal-footer ">
                     <button type="button" className="btn btn-secondary fw-bolder p-3" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn p-3 fw-bolder text-white" style={bgg}>Ajouter {props.name}</button>
+                    <button type="button" className="btn p-3 fw-bolder text-white" onSubmit={props.onSubmit}  style={bgg}>Ajouter {props.name}</button>
                 </div>
                 </div>
             </div>

@@ -31,11 +31,12 @@ const Register=()=>{
         }else{
             await axios.post('http://127.0.0.1:4111/api/auth/register',data )
             .then((responce)=>{
-                const emmm =responce.data.message
-                if(emmm!=undefined){
+                const verficemail =responce.data.message
+                if(verficemail!=undefined){
                     setErrmail(true)
                 }else{
                     window.location.replace('/Login') 
+                    
                 }
             
             }).catch((err)=>{

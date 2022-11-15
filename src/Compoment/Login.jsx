@@ -5,6 +5,7 @@ import{Router ,NavLink} from 'react-router-dom'
 import Register from './Register';
 import Home from './Home'
 import Users from "./Users";
+import Dashbord from "./Dashbord";
 import axios from 'axios'
 
 const btnlg={background:'coral', border:'none'}
@@ -57,7 +58,8 @@ const Login=()=>{
             {
                 (msguserexist)
                 // ?<span style={err} >user existe</span>
-                ?window.location.replace('/Users') 
+                
+                ?window.location.replace('/Dashbord') 
                 :(msgpwdaff)
                 ?<span style={err} >password inccorect</span>:
                 (msgnotexitt)

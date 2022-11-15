@@ -29,7 +29,7 @@ const myStyle={
       <Route path="/Users" element={<Users/>} />
       <Route path="/Dashbord" element={<Dashbord/>} />
       <Route path="/Livreur" element={<Livreur/>}></Route>
-      <Route path="/Manger" element={<Manger/>}></Route>
+      {/* <Route path="/Manger" element={<Manger/>}></Route> */}
       <Route path="/Client" element={<Client/>}></Route>
 		</Routes>
      </div>

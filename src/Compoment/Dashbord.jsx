@@ -13,7 +13,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 const bgg={'background':'#fd7e14'}
 const over={'overflow': 'auto'}
-const icon={"font-size": "35px","color":"brown"}
+const icon={"fontSize": "35px","color":"brown"}
 const shadow = {
   boxShadow: '13px 8px 13px coral','border':'none'
 };

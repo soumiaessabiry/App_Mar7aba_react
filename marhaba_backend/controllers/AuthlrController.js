@@ -8,7 +8,7 @@ const jwt=require('jsonwebtoken')
 const env=require('dotenv')
 const nodemail=require('../nodemailer')
 const Role_Client=process.env.Role_Client
-const Role_Manger=process.env.Role_Manger
+const Role_Manager=process.env.Role_Manager
 const Role_Livreur=process.env.Role_Livreur
 
 //**register**/
@@ -53,15 +53,9 @@ const Login=async (req,res)=>{
         if(!compartpwt){
             res.send({messagepwd:'Password inccorect'})
         }else{
-            // const checkrole=await rolesm.findOne({
-            //     role:rolesm.role
-                
-            // })
+         
             const tokene=jwt.sign({checkuser},process.env.TOKEN_SECRET)
             locltorage('tokene',tokene)
-
-            // locltorage('email',email)
-            // res.send({messagesuccess:`Hello ${checkuser.username} your Email is ${checkuser.email} and your  Role is ${checkuser.role}`})
             const username=checkuser.username;
             const email=checkuser.email;
             rolesm.findOne({_id: checkuser.role})
@@ -77,6 +71,15 @@ const Login=async (req,res)=>{
     }
 
 }
+//*******logout */
+const Logout=(req,res)=>{
+    const clearlocal=locltorage.clear();
+    if(clearlocal){
+        return res.send({logoutmessage:"Quiter l'application"})
+    }
+
+}
+//****resit passwrd*/
 const RsitePassword= async(req,res)=>{
     let emaillog=req.body.email;
     let passwordlog=req.body.password.toString();
@@ -106,15 +109,40 @@ const RsitePassword= async(req,res)=>{
         res.send("user makaynch")
     }
 }
-// creat role
-// const InsertRole=new rolesm({
-//     name:'Manger'
-// })
-// InsertRole.save()
+
+//******Ajouter livreur */
+const AddLivreur=async (req,res)=>{
+   const checkLivreur=await usersm.findOne({email:req.body.email})
+   if(checkLivreur){
+    return res.send({message:"email is already registered"})
+   }else{
+    const pwdlivreur=req.body.password.toString()
+    const salt= await bcrypt.genSalt(10)
+    const hachPassword= await bcrypt.hash(pwdlivreur,salt)
+    const InserLivreur= new usersm({
+        username:req.body.username,
+        email:req.body.email,
+        password:hachPassword,
+        role:Role_Livreur
+
+    })
+    const  saveLivreur= await InserLivreur.save();
+    try {
+        res.send(saveLivreur)
+    } catch (error) {
+        res.send("livreur not add !!!!!!!!!!!!")
+    }
+
+
+   }
+
+}
 
 
 module.exports={
     Register,
     Login,
     RsitePassword,
+    Logout,
+   AddLivreur
 }

@@ -8,8 +8,8 @@ const jwt=require('jsonwebtoken')
 const env=require('dotenv')
 const nodemail=require('../nodemailer')
 const Role_Client=process.env.Role_Client
-const Role_Manger=process.env.Role_Client
-const Role_Livreur=process.env.Role_Client
+const Role_Manager=process.env.Role_Manager
+const Role_Livreur=process.env.Role_Livreur
 
 
 const AddRole=async (req,res)=>{

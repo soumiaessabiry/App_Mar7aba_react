@@ -1,5 +1,5 @@
 const express=require('express');
-const {Register,Login,RsitePassword}=require('../controllers/AuthlrController');
+const {Register,Login,RsitePassword,AddLivreur,Logout}=require('../controllers/AuthlrController');
 const {AddRole}=require('../controllers/RoleConttroller')
 const router=express.Router();
 const veriftoken=require('../verifitoken')
@@ -14,6 +14,8 @@ router.post('/register',Register);
 router.post('/login',Login);
 router.post('/resitpassword',RsitePassword);
 router.post('/AjouterRole',AddRole)
+router.post('/Addlivreur',AddLivreur)
+router.get('/Logout',Logout)
 // midlllllllwair
 router.get('/client',veriftoken.verifiertoken([Role_Client]),(req,res)=>{
     res.send("hello Client")
