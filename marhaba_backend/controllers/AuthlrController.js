@@ -58,9 +58,10 @@ const Login=async (req,res)=>{
             locltorage('tokene',tokene)
             const username=checkuser.username;
             const email=checkuser.email;
+            const password=checkuser.password
             rolesm.findOne({_id: checkuser.role})
                 .then(e=>{
-                    const datalog ={username: username ,email: email, role: e.name}
+                    const datalog ={username: username ,email: email, role: e.name,password:password}
                     res.json({messagesuccess:datalog})
                 })
                 .catch(()=>{res.json({message: 'error'})})
@@ -95,18 +96,16 @@ const RsitePassword= async(req,res)=>{
             // res.send("b7al b7alll")
             const updpwd=await usersm.updateOne({email:emaillog},{$set:{password:newpwdhach}})
             if(updpwd){
-             res.send("tbadal")
+             res.send({messageUpdatepwd:"updat password is success"})
 
-            }else{
-                res.send("matabdlchtbadal")
             }
 
         }else{
-            res.send("machi b7al b7alll")
+            res.send({passwordIncorect:"last password inccorect"})
 
         }
     }else{
-        res.send("user makaynch")
+        res.send({emailusernotexist:"Email not exist"})
     }
 }
 

@@ -29,7 +29,7 @@ const HomePage=()=>{
                 <div className="text-dark">
                 <div className="card  text-center"  style={bg}>
                     <div className="card-body "  >
-                        <h5 className="card-title fw-bold fs-1 text-white">Welcome in MARHABA</h5>
+                        <h5 className="card-title fw-bold fs-1 text-white">MARHABA</h5>
                         <div className="home-logreg">
                             <button type="submit" className='btn-log ' style={shadow}> <NavLink to="/login" style={navlik}>login</NavLink></button>
                             <button type="submit" className='btn-reg ' style={shadow}> <NavLink to="/register" style={navlik}>Register</NavLink></button>

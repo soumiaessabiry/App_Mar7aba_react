@@ -11,6 +11,7 @@ import axios from 'axios'
 const btnlg={background:'coral', border:'none'}
 const err={color:'red'}
 const sing={color:'coral'}
+const forget={color:'white'}
 const shadow = {boxShadow: '1px 2px 20px red',};
 
 const Login=()=>{
@@ -39,6 +40,7 @@ const Login=()=>{
                     localStorage.setItem('NameUser',messagesuccess.username)
                     localStorage.setItem('EmailUser',messagesuccess.email)
                     localStorage.setItem('RoleUser',messagesuccess.role)
+                    localStorage.setItem('passworduser',messagesuccess.password)
 
                 }else if(messagepwd!=undefined){
                 setMsgpwdaff(true)
@@ -84,7 +86,8 @@ const Login=()=>{
             <div class="d-grid gap-2">
                 <button type='submit' className="btn btn-lg fw-bolder fs-3 p-2" style={btnlg}>login</button>
             </div>
-            <h5 className='sing'>Note a member{' '}<NavLink to='/Register' className='h6log'>Sign up now</NavLink></h5>
+            <h5 className='sing'>You do not have account ?<NavLink to='/Register' className='h6log'>Sign up now</NavLink></h5>
+            <h5 className='sing' >{' '}<NavLink to='/Register' className='forget'>Forget password ?</NavLink></h5>
         </form>
     </Container>
     );
