@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import {FcLock ,FcFeedback,FcHighPriority} from "react-icons/fc";
-import{Router ,NavLink} from 'react-router-dom'
+import{Router ,NavLink, useNavigate} from 'react-router-dom'
 import Register from './Register';
 import Home from './Home'
 import Users from "./Users";
@@ -15,11 +15,13 @@ const forget={color:'white'}
 const shadow = {boxShadow: '1px 2px 20px red',};
 
 const Login=()=>{
+    const navigate=useNavigate()
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const [msgnotexitt,setMsgnotexitt]=useState(false);
     const [msgpwdaff,setMsgpwdaff]=useState(false);
     const [msguserexist,setMsguserexist]=useState(false);
+    const [verEml,setverEml]=useState(false);
     const logindata={email,password}
     const [erroor,setError]=useState(false)
     const onsubmit=async(e)=>{
@@ -33,23 +35,35 @@ const Login=()=>{
                const  messagepwd=responce.data.messagepwd
                const  messusernotexist=responce.data.messusernotexist
                const  messagesuccess=responce.data.messagesuccess
-                 if(messagesuccess!=undefined){
+               const  verEmle=responce.data.veremail
+              if(verEmle==undefined){
+                if(messagesuccess!=undefined ){
                     setMsguserexist(true)
+                    
                     // localStorage.setItem('email',email)
                     // localStorage.setItem('name',email)
+                    localStorage.setItem('checkuseree',true)
                     localStorage.setItem('NameUser',messagesuccess.username)
                     localStorage.setItem('EmailUser',messagesuccess.email)
                     localStorage.setItem('RoleUser',messagesuccess.role)
                     localStorage.setItem('passworduser',messagesuccess.password)
-
+                    if(localStorage.setItem('RoleUser') == 'Manager') navigate('/Dashboard') 
+                    else navigate('/users') 
+                    
                 }else if(messagepwd!=undefined){
                 setMsgpwdaff(true)
                 }else if(messusernotexist!=undefined){
                     setMsgnotexitt(true)
+                }else if(verEml!=undefined){
+                    setverEml(true)
                 }
+              }else{
+                setverEml(true)
+              }
             }).catch((err)=>{
                 console.log(err)
             })
+            
         }
     }
     return(
@@ -60,12 +74,13 @@ const Login=()=>{
             {
                 (msguserexist)
                 // ?<span style={err} >user existe</span>
-                
-                ?window.location.replace('/Dashbord') 
+                ?navigate('/Dashbord') 
                 :(msgpwdaff)
                 ?<span style={err} >password inccorect</span>:
                 (msgnotexitt)
                 ?<span style={err} >user noot existe</span>
+                :(verEml)
+                ?<span style={err} >Verifier your Email !!!!!!!</span>
                 :""
             }
             </h5>

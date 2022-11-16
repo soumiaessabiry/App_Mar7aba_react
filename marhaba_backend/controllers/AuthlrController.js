@@ -7,6 +7,7 @@ const locltorage=require('local-storage')
 const jwt=require('jsonwebtoken')
 const env=require('dotenv')
 const nodemail=require('../nodemailer')
+// const nodemailer=require("nodemailer")
 const Role_Client=process.env.Role_Client
 const Role_Manager=process.env.Role_Manager
 const Role_Livreur=process.env.Role_Livreur
@@ -18,6 +19,9 @@ const Register=async (req,res)=>{
     if(checkemail){
         return res.send({message:"email is already registered"})
     }
+    locltorage('email',req.body.email)
+    nodemail.main()
+
     // const salt=await bcrypt.genSalt(10)
     const Rpwd=req.body.password
     const hachpassword=await bcrypt.hash(Rpwd,10)
@@ -28,17 +32,22 @@ const Register=async (req,res)=>{
         username:req.body.username,
         email:req.body.email,
         password:hachpassword,
-        role:Role_Client
+        role:Role_Client,
+        confirmEmail:false
     })
     // save user
     const saveuser=await InsertUser.save()
-    try {
 
+    try {
+        locltorage("email",saveuser.email)
         res.send(saveuser)
+        // console.log(locltorage("email"))
     } catch (error) {
         res.send("erroor de insert user")
 
     }
+    
+
 }
 
 //**login**/
@@ -49,24 +58,32 @@ const Login=async (req,res)=>{
         email:emaillogin
     })
     if(checkuser){
-        const compartpwt=await bcrypt.compare(pwdlogin,checkuser.password)
-        if(!compartpwt){
-            res.send({messagepwd:'Password inccorect'})
+        if(checkuser.confirmEmail==true){
+            const compartpwt=await bcrypt.compare(pwdlogin,checkuser.password)
+            if(!compartpwt){
+                res.send({messagepwd:'Password inccorect'})
+            }else{
+             
+                const tokene=jwt.sign({checkuser},process.env.TOKEN_SECRET)
+                
+                locltorage('tokene',tokene)
+                const username=checkuser.username;
+                const email=checkuser.email;
+                const password=checkuser.password         
+                rolesm.findOne({_id: checkuser.role})
+                    .then(e=>{
+                        const datalog ={username: username ,email: email, role: e.name, password:password}
+                        res.json({messagesuccess: datalog})
+                    
+                    })
+                    .catch(()=>{res.json({message: 'error'})})
+    
+            }
         }else{
-         
-            const tokene=jwt.sign({checkuser},process.env.TOKEN_SECRET)
-            locltorage('tokene',tokene)
-            const username=checkuser.username;
-            const email=checkuser.email;
-            const password=checkuser.password
-            rolesm.findOne({_id: checkuser.role})
-                .then(e=>{
-                    const datalog ={username: username ,email: email, role: e.name,password:password}
-                    res.json({messagesuccess:datalog})
-                })
-                .catch(()=>{res.json({message: 'error'})})
-
+            res.json({veremail:"Verifier your Email"})
         }
+        
+        // if(checkuser.role="Manager")
     }else{
         res.send({messusernotexist:"User not exist"})
     }
@@ -122,7 +139,9 @@ const AddLivreur=async (req,res)=>{
         username:req.body.username,
         email:req.body.email,
         password:hachPassword,
-        role:Role_Livreur
+        role:Role_Client,
+        confirmEmail:false
+
 
     })
     const  saveLivreur= await InserLivreur.save();
@@ -138,10 +157,13 @@ const AddLivreur=async (req,res)=>{
 }
 
 
+
 module.exports={
     Register,
     Login,
     RsitePassword,
     Logout,
-   AddLivreur
+   AddLivreur,
+ 
+
 }

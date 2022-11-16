@@ -15,7 +15,9 @@ router.post('/login',Login);
 router.post('/resitpassword',RsitePassword);
 router.post('/AjouterRole',AddRole)
 router.post('/Addlivreur',AddLivreur)
+router.get('/Confirmemail/:token',nodemail.ConfirmEmail)
 router.get('/Logout',Logout)
+
 // midlllllllwair
 router.get('/client',veriftoken.verifiertoken([Role_Client]),(req,res)=>{
     res.send("hello Client")
@@ -23,7 +25,7 @@ router.get('/client',veriftoken.verifiertoken([Role_Client]),(req,res)=>{
 router.get('/livreure',veriftoken.verifiertoken([Role_Livreur]),(req,res)=>{
     res.send("hello livreure")
 })
-router.get('/manager',veriftoken.verifiertoken([Role_Manger]),(req,res)=>{
+router.get('/Dashbord',veriftoken.verifiertoken([Role_Manger]),(req,res)=>{
     res.send("hello manager ")
 })
 router.get('/*',(req,res)=>{
