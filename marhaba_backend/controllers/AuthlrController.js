@@ -7,7 +7,6 @@ const locltorage=require('local-storage')
 const jwt=require('jsonwebtoken')
 const env=require('dotenv')
 const nodemail=require('../nodemailer')
-// const nodemailer=require("nodemailer")
 const Role_Client=process.env.Role_Client
 const Role_Manager=process.env.Role_Manager
 const Role_Livreur=process.env.Role_Livreur
@@ -21,7 +20,6 @@ const Register=async (req,res)=>{
     }
     locltorage('email',req.body.email)
     nodemail.main()
-
     // const salt=await bcrypt.genSalt(10)
     const Rpwd=req.body.password
     const hachpassword=await bcrypt.hash(Rpwd,10)
@@ -41,13 +39,11 @@ const Register=async (req,res)=>{
     try {
         locltorage("email",saveuser.email)
         res.send(saveuser)
-        // console.log(locltorage("email"))
     } catch (error) {
         res.send("erroor de insert user")
 
     }
     
-
 }
 
 //**login**/
@@ -59,13 +55,13 @@ const Login=async (req,res)=>{
     })
     if(checkuser){
         if(checkuser.confirmEmail==true){
+
             const compartpwt=await bcrypt.compare(pwdlogin,checkuser.password)
             if(!compartpwt){
                 res.send({messagepwd:'Password inccorect'})
             }else{
              
                 const tokene=jwt.sign({checkuser},process.env.TOKEN_SECRET)
-                
                 locltorage('tokene',tokene)
                 const username=checkuser.username;
                 const email=checkuser.email;
@@ -107,10 +103,8 @@ const RsitePassword= async(req,res)=>{
         email:emaillog,
     })
     if(checUser){
-        // res.send(checUser)
         const comppwd=await bcrypt.compare(passwordlog,checUser.password)
         if(comppwd){
-            // res.send("b7al b7alll")
             const updpwd=await usersm.updateOne({email:emaillog},{$set:{password:newpwdhach}})
             if(updpwd){
              res.send({messageUpdatepwd:"updat password is success"})
@@ -139,7 +133,7 @@ const AddLivreur=async (req,res)=>{
         username:req.body.username,
         email:req.body.email,
         password:hachPassword,
-        role:Role_Client,
+        role:Role_Livreur,
         confirmEmail:false
 
 
@@ -163,7 +157,7 @@ module.exports={
     Login,
     RsitePassword,
     Logout,
-   AddLivreur,
+    AddLivreur,
  
 
 }

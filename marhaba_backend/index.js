@@ -8,7 +8,6 @@ const authroute=require('./routes/AuthlrRoute')
 const db=require('./Config/db')
 const usermodel=require('./models/UserModel')
 const bodyparser=require('body-parser')
-// const axios=require('axios')
 
 
 app.use(cors());

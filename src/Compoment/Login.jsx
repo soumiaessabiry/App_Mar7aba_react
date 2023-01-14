@@ -29,7 +29,6 @@ const Login=()=>{
         if(email.length==0 || password.length==0  ){
             setError(true)
         }else{
-            // console.log(logindata)
             await axios.post('http://127.0.0.1:4111/api/auth/login',logindata)
             .then((responce)=>{
                const  messagepwd=responce.data.messagepwd
@@ -39,19 +38,18 @@ const Login=()=>{
               if(verEmle==undefined){
                 if(messagesuccess!=undefined ){
                     setMsguserexist(true)
-                    
-                    // localStorage.setItem('email',email)
-                    // localStorage.setItem('name',email)
+
                     localStorage.setItem('checkuseree',true)
                     localStorage.setItem('NameUser',messagesuccess.username)
                     localStorage.setItem('EmailUser',messagesuccess.email)
                     localStorage.setItem('RoleUser',messagesuccess.role)
                     localStorage.setItem('passworduser',messagesuccess.password)
+
                     if(localStorage.setItem('RoleUser') == 'Manager') navigate('/Dashboard') 
-                    else navigate('/users') 
+                    else navigate('/Users') 
                     
                 }else if(messagepwd!=undefined){
-                setMsgpwdaff(true)
+                    setMsgpwdaff(true)
                 }else if(messusernotexist!=undefined){
                     setMsgnotexitt(true)
                 }else if(verEml!=undefined){
@@ -73,7 +71,6 @@ const Login=()=>{
             <h5 className='text-center'>
             {
                 (msguserexist)
-                // ?<span style={err} >user existe</span>
                 ?navigate('/Dashbord') 
                 :(msgpwdaff)
                 ?<span style={err} >password inccorect</span>:

@@ -1,4 +1,3 @@
-// bootstrap
 import { Container } from 'react-bootstrap';
 import {FcLock ,FcFeedback} from "react-icons/fc";
 import { FcPortraitMode ,FcCheckmark ,FcHighPriority} from "react-icons/fc";

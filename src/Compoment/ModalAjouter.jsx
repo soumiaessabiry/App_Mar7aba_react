@@ -14,7 +14,7 @@ const ModalAjouter=(props)=>{
                 <div className="modal-body text-dark fw-bolder">
                     <form>
                         <div className="mb-3">
-                            <label className="col-form-label fs-5">Nom de {props.name}</label>
+                            <label className="col-form-label fs-5">Nom de {props.e}</label>
                             <input type="text" className="form-control p-2 fs-4" value={props.username}  onChange={props.onchangeusername}/>
                         </div>
                         <div className="mb-3">

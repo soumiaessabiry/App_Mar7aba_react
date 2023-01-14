@@ -30,6 +30,7 @@ const env=require('dotenv')
   
 }
 
+
 const ConfirmEmail= (req,res)=>{
     const token=req.params.token
     const tkn=jwt.verify(token,process.env.TOKEN_SECRET)

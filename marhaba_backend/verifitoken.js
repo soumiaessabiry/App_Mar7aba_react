@@ -1,11 +1,11 @@
 const jwt=require('jsonwebtoken')
 const env=require('dotenv')
-const locltorage=require('local-storage')
+const loclStorage=require('local-storage')
 
 function verifiertoken(data){
     return (req,res,next)=>{
-        if(locltorage('tokene')){
-            const verftoken=jwt.verify(locltorage('tokene'),process.env.TOKEN_SECRET)
+        if(loclStorage('tokene')){
+            const verftoken=jwt.verify(loclStorage('tokene'),process.env.TOKEN_SECRET)
             if(verftoken){
                 if(data.includes(verftoken.checkuser.role[0])){
                     next()
@@ -32,7 +32,7 @@ module.exports={verifiertoken}
 
 // function verifiertoken(data){
 //     return(req,res,next)=>{
-//         if(locltorage('tokene')){
+//         if(loclStorage('tokene')){
 //             const verftoken=jwt.verify(locltorage('tokene'),process.env.TOKEN_SECRET)
 //             if(verftoken){
 //                 req.use=verftoken
